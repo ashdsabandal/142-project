@@ -99,9 +99,8 @@ int main()
     clock_t t1, t2;
     double  t;
 
-    // ---- print size and capacity
+    // ---- print size
     printf("Size (n)  : %d\n", n);
-    printf("Capacity (W)  : %d\n", W);
 
     // // ---- print value and weight arrays
     // print_array("Values ", values, n);

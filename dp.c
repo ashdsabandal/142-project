@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <time.h>   // clock_t, clock(), CLOCKS_PER_SEC
+#include <stdlib.h>
 
 // returns maximum of two integers
 int max(int a, int b)
@@ -39,36 +40,39 @@ void knapSackTabulation(int W, int wt[], int val[], int n) {
         }
     }
 
-    // ---- print capacity
-    printf("Capacity (W)  : %d\n\n", W);
+    // ---- print size 
+    printf("Size (n)  : %d\n", n);
 
-    // ---- print value and weight arrays
-    print_array("Values ", val, n);
-    print_array("Weights", wt,  n);
-    printf("\n");
+    // // ---- print capacity
+    // printf("Capacity (W)  : %d\n\n", W);
 
-    // ---- print 2d dp table 
+    // // ---- print value and weight arrays
+    // print_array("Values ", val, n);
+    // print_array("Weights", wt,  n);
+    // printf("\n");
 
-    // ---- header row showing each capacity value
-    printf("        ");
-    for (int w = 0; w <= W; w++)
-        printf("W=%-3d ", w);
-    printf("\n");
+    // // ---- print 2d dp table 
 
-    // ---- divider
-    printf("        ");
-    for (int w = 0; w <= W; w++)
-        printf("------");
-    printf("\n");
+    // // ---- header row showing each capacity value
+    // printf("        ");
+    // for (int w = 0; w <= W; w++)
+    //     printf("W=%-3d ", w);
+    // printf("\n");
 
-    // ---- dp table rows 
-    for (int i = 0; i <= n; i++) {
-        printf("i=%-2d  | ", i);        // item index
-        for (int w = 0; w <= W; w++)
-            printf("%-6d", dp[i][w]);   // each cell value
-        printf("\n");
-    }
-    printf("\n");
+    // // ---- divider
+    // printf("        ");
+    // for (int w = 0; w <= W; w++)
+    //     printf("------");
+    // printf("\n");
+
+    // // ---- dp table rows 
+    // for (int i = 0; i <= n; i++) {
+    //     printf("i=%-2d  | ", i);        // item index
+    //     for (int w = 0; w <= W; w++)
+    //         printf("%-6d", dp[i][w]);   // each cell value
+    //     printf("\n");
+    // }
+    // printf("\n");
 
     // ---- backtrack to find included/excluded items 
     // start at dp[n][W] (bottom-right corner)
@@ -90,29 +94,29 @@ void knapSackTabulation(int W, int wt[], int val[], int n) {
         // if dp[i][sz] == dp[i-1][sz], skip - do nothing
     }
 
-    // ----- print x_n included/excluded 
-    printf("Item Selection (x_n):\n");
-    printf("  %-8s %-8s %-8s %-15s\n", "Item",   "Weight", "Value", "x_n");
-    printf("  %-8s %-8s %-8s %-15s\n", "----",   "------", "-----", "---");
-    for (int i = 0; i < n; i++) {
-        if (included[i]) {
-        printf("  x_%-5d %-8d %-8d %s\n",
-                i + 1, wt[i], val[i],
-                "1 (included)"
-            );
-        }
-        else {
-            printf("  x_%-5d %-8d %-8d %s\n",
-                i + 1, wt[i], val[i],
-                "0 (excluded)"
-            );
-        }
-    }
+    // // ----- print x_n included/excluded 
+    // printf("Item Selection (x_n):\n");
+    // printf("  %-8s %-8s %-8s %-15s\n", "Item",   "Weight", "Value", "x_n");
+    // printf("  %-8s %-8s %-8s %-15s\n", "----",   "------", "-----", "---");
+    // for (int i = 0; i < n; i++) {
+    //     if (included[i]) {
+    //     printf("  x_%-5d %-8d %-8d %s\n",
+    //             i + 1, wt[i], val[i],
+    //             "1 (included)"
+    //         );
+    //     }
+    //     else {
+    //         printf("  x_%-5d %-8d %-8d %s\n",
+    //             i + 1, wt[i], val[i],
+    //             "0 (excluded)"
+    //         );
+    //     }
+    // }
 
-    printf("\n");
+    // printf("\n");
 
-    // source code
-    printf("Maximum value that can be put in knapsack: %d\n", dp[n][W]);
+    // // source code
+    // printf("Maximum value that can be put in knapsack: %d\n", dp[n][W]);
 }
 
 int main() {
