@@ -43,8 +43,8 @@ void knapSackTabulation(int W, int wt[], int val[], int n) {
     // ---- print size 
     printf("Size (n)  : %d\n", n);
 
-    // // ---- print capacity
-    // printf("Capacity (W)  : %d\n\n", W);
+    // ---- print capacity
+    printf("Capacity (W)  : %d\n\n", W);
 
     // // ---- print value and weight arrays
     // print_array("Values ", val, n);
@@ -120,7 +120,7 @@ void knapSackTabulation(int W, int wt[], int val[], int n) {
 }
 
 int main() {
-    const char *filename = "datasets/1x.txt"; 
+    const char *filename = "datasets/5x.txt"; 
     
     FILE *file = fopen(filename, "r");
     if (file == NULL) {
