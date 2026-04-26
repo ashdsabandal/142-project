@@ -116,10 +116,40 @@ void knapSackTabulation(int W, int wt[], int val[], int n) {
 }
 
 int main() {
-    int values[] = {3, 4, 5, 6};    
-    int weight[] = {2, 3, 4, 5};    
-    int W        = 8;                                   // capacity
-    int n        = sizeof(values) / sizeof(values[0]);  // n size
+    const char *filename = "datasets/1x.txt"; 
+    
+    FILE *file = fopen(filename, "r");
+    if (file == NULL) {
+        printf("Error: Could not open file %s\n", filename);
+        return 1; 
+    }
+
+    int n, W;
+    
+    // read the header lines: "n 1000" and "W 500"
+    fscanf(file, "n %d\n", &n);
+    fscanf(file, "W %d\n", &W);
+
+    int *values = (int *)malloc(n * sizeof(int));
+    int *weights = (int *)malloc(n * sizeof(int));
+
+    if (values == NULL || weights == NULL) {
+        printf("Error: Memory allocation failed\n");
+        fclose(file);
+        return 1;
+    }
+
+    // read all the values
+    for (int i = 0; i < n; i++) {
+        fscanf(file, "%d", &values[i]);
+    }
+
+    // read all the weights
+    for (int i = 0; i < n; i++) {
+        fscanf(file, "%d", &weights[i]);
+    }
+
+    fclose(file);
 
     clock_t t1, t2;
     double  t;
@@ -127,7 +157,7 @@ int main() {
     /* START CLOCK */
     t1 = clock();
 
-    knapSackTabulation(W, weight, values, n);
+    knapSackTabulation(W, weights, values, n);
 
     /* STOP CLOCK */
     t2 = clock();
@@ -137,8 +167,3 @@ int main() {
 
     return 0;
 }
-
-// test cases:
-// v[ 3, 4, 5, 6 ]  w[ 2, 3, 4, 5 ]  W = 8
-// v[ 1, 2, 5, 6 ]  w[ 2, 3, 4, 5 ]  W = 8
-// v[ 2, 2, 4, 5, 3 ]  w[ 3, 1, 3, 4, 2 ]  W = 7
