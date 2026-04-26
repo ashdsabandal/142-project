@@ -113,14 +113,12 @@ void knapSackTabulation(int W, int wt[], int val[], int n) {
     //     }
     // }
 
-    // printf("\n");
-
     // // source code
     // printf("Maximum value that can be put in knapsack: %d\n", dp[n][W]);
 }
 
 int main() {
-    const char *filename = "datasets/5x.txt"; 
+    const char *filename = "datasets/1x.txt"; 
     
     FILE *file = fopen(filename, "r");
     if (file == NULL) {

@@ -61,7 +61,7 @@ int knapsackRecursive(int W, int wt[], int val[], int n, int depth, const char* 
 // Driver Code
 int main()
 {
-    const char *filename = "datasets/5x.txt"; 
+    const char *filename = "datasets/1x.txt"; 
     
     FILE *file = fopen(filename, "r");
     if (file == NULL) {
