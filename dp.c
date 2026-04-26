@@ -44,7 +44,7 @@ void knapSackTabulation(int W, int wt[], int val[], int n) {
     printf("Size (n)  : %d\n", n);
 
     // ---- print capacity
-    printf("Capacity (W)  : %d\n\n", W);
+    printf("Capacity (W)  : %d\n", W);
 
     // // ---- print value and weight arrays
     // print_array("Values ", val, n);
