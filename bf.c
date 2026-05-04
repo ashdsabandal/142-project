@@ -1,3 +1,11 @@
+/*
+Moniq Alvarez
+Ashley Mark Sabandal
+ST1L
+
+Code Reference: https://www.geeksforgeeks.org/c/c-program-to-solve-the-0-1-knapsack-problem/
+*/
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>   // clock_t, clock(), CLOCKS_PER_SEC
